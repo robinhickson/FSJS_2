@@ -165,15 +165,16 @@ selectedOption.addEventListener('change', () => {
 //Listen for pagination button clicks and reset all button classes, then set target button class to active. 
 // Finally call showStudentsPage to paint target page (clicked)
 linkEntryHTML.addEventListener('click', e => {
+   
    if (e.target.classList.contains("page-button")) {
       const linkCollection = linkEntryHTML.children;
       for (let j = 0; j < linkCollection.length; j++) {
          linkCollection[j].firstChild.classList.remove("active");
       }
-   }
-   e.target.classList.add("active");
-   targetPage = parseInt(e.target.textContent, 10);
-   showStudentsPage(list, targetPage);
+      e.target.classList.add("active");
+      targetPage = parseInt(e.target.textContent, 10);
+      showStudentsPage(list, targetPage);
+   }  
 });
 
 // Add keyup listener to searchbox and call searchKeywords function
