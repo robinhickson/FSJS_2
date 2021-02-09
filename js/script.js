@@ -123,9 +123,13 @@ function searchKeywords(value) {
    // iterate through student names to check for user input text match//
    //If there's a match, display the number of matches, and those matches//
 
-   if (!value.includes(' ') && value != '') {
+   if (value != '') {
       data.forEach((match, index) => {
-         if (match.name.first.toLowerCase().includes(value) || match.name.last.toLowerCase().includes(value)) {
+         let firstName = match.name.first.toLowerCase();
+         let lastName = match.name.last.toLowerCase();
+         let combinedNameSpace = firstName+" "+lastName;
+         let combinedNameNoSpace = firstName+lastName;
+         if (firstName.includes(value) || lastName.includes(value) || combinedNameSpace.includes(value) || combinedNameNoSpace.includes(value)){
             displayMatches.push(data[index]);
          }
          list = displayMatches;
